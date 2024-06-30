@@ -22,11 +22,11 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-        working-directory: ./starter/frontend
+        working-directory: starter/frontend
 
       - name: Run linter
         run: npm run lint
-        working-directory: ./startedr/frontend
+        working-directory: starter/frontend
 
   test:
     runs-on: ubuntu-latest
@@ -41,11 +41,11 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-        working-directory: ./starter/frontend
+        working-directory: starter/frontend
 
       - name: Run tests
         run: CI=true npm test
-        working-directory: ./starter/frontend
+        working-directory: starter/frontend
 
   build:
     runs-on: ubuntu-latest
@@ -61,10 +61,10 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-        working-directory: ./starter/frontend
+        working-directory: starter/frontend
 
       - name: Build Docker image
         run: |
           docker build --build-arg REACT_APP_MOVIE_API_URL=http://localhost:5000 -t mp-frontend:latest .
           docker run --name mp-frontend -p 3000:3000 -d mp-frontend
-        working-directory: ./starter/frontend
+        working-directory: starter/frontend
