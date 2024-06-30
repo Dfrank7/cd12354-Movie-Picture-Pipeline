@@ -87,7 +87,7 @@ jobs:
           aws eks update-kubeconfig --region us-east-1 --name movie-pictures
     
       - name: Deploy to Kubernetes
-        working-directory: starter/frontend/k8s
+        working-directory: ./starter/frontend/k8s
         run: |
           kustomize edit set image frontend=760216051599.dkr.ecr.us-east-1.amazonaws.com/$REPO_NAME:$IMAGE_TAG
           kustomize build | kubectl apply -f -
