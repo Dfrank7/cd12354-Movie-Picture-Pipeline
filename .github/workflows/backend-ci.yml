@@ -22,7 +22,7 @@ jobs:
 
       - name: Install dependencies
         run: 
-          pipenv install --dev
+          pip install pipenv
           pip install flake8
         working-directory: ./starter/backend
 
@@ -43,7 +43,7 @@ jobs:
 
       - name: Install dependencies
         run: 
-          pipenv install --dev
+          pip install pipenv
           pip install flake8
         working-directory: starter/backend
 
