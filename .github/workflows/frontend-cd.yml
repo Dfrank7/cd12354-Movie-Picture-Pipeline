@@ -8,6 +8,10 @@ on:
       - 'starter/frontend/**'
   workflow_dispatch:
 
+env:
+  REPOSITORY: frontend
+  IMAGE_TAG: ${{ github.sha }}
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -58,9 +62,6 @@ jobs:
         working-directory: ./starter/frontend
 
       - name: Build Docker image
-        env:
-          REPO_NAME: frontend
-          IMAGE_TAG: latest
         run: |
           docker build --build-arg REACT_APP_MOVIE_API_URL=http://localhost:5000 -t 760216051599.dkr.ecr.us-east-1.amazonaws.com/$REPO_NAME:$IMAGE_TAG .
           docker push 760216051599.dkr.ecr.us-east-1.amazonaws.com/$REPO_NAME:$IMAGE_TAG
