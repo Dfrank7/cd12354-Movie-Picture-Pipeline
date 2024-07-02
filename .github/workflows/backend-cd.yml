@@ -76,6 +76,7 @@ jobs:
           REPO_NAME: backend
           IMAGE_TAG: latest
         run: |
+          docker build --tag $REPO_NAME:$IMAGE_TAG .
           docker tag $REPO_NAME:$IMAGE_TAG 760216051599.dkr.ecr.us-east-1.amazonaws.com/$REPO_NAME:$IMAGE_TAG
           docker push 760216051599.dkr.ecr.us-east-1.amazonaws.com/$REPO_NAME:$IMAGE_TAG
         working-directory: ./starter/backend
