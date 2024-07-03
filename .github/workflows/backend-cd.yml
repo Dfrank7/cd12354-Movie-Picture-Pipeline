@@ -77,8 +77,8 @@ jobs:
           IMAGE_TAG: latest
         run: |
           docker build --tag $REPO_NAME:$IMAGE_TAG .
-          docker tag $REPO_NAME:$IMAGE_TAG 760216051599.dkr.ecr.us-east-1.amazonaws.com/$REPO_NAME:$IMAGE_TAG
-          docker push 760216051599.dkr.ecr.us-east-1.amazonaws.com/$REPO_NAME:$IMAGE_TAG
+          docker tag $REPO_NAME:$IMAGE_TAG 487216458884.dkr.ecr.us-east-1.amazonaws.com/$REPO_NAME:$IMAGE_TAG
+          docker push 487216458884.dkr.ecr.us-east-1.amazonaws.com/$REPO_NAME:$IMAGE_TAG
         working-directory: ./starter/backend
 
       - name: Configure kubectl
@@ -88,5 +88,5 @@ jobs:
       - name: Deploy to Kubernetes
         working-directory: ./starter/backend/k8s
         run: |
-          kustomize edit set image backend=760216051599.dkr.ecr.us-east-1.amazonaws.com/$REPO_NAME:$IMAGE_TAG
+          kustomize edit set image backend=487216458884.dkr.ecr.us-east-1.amazonaws.com/$REPO_NAME:$IMAGE_TAG
           kustomize build | kubectl apply -f -
