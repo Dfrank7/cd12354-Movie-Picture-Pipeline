@@ -89,7 +89,7 @@ jobs:
 
       - name: Configure kubectl
         run: |
-          aws eks update-kubeconfig --region us-east-1 --name movie-pictures
+          aws eks update-kubeconfig --region us-east-1 --name movie-picture
     
       - name: Deploy to Kubernetes
         working-directory: ./starter/frontend/k8s
