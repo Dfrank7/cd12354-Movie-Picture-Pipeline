@@ -16,6 +16,8 @@ You'll find 2 folders, one named `frontend` and one named `backend`, where each 
 | **Frontend**         | [![Frontend Continuous Integration](https://github.com/Dfrank7/cd12354-Movie-Picture-Pipeline/actions/workflows/frontend-ci.yml/badge.svg)](https://github.com/Dfrank7/cd12354-Movie-Picture-Pipeline/actions/workflows/frontend-ci.yml)| [![Frontend Continuous Deployment](https://github.com/Dfrank7/cd12354-Movie-Picture-Pipeline/actions/workflows/frontend-cd.yml/badge.svg)](https://github.com/Dfrank7/cd12354-Movie-Picture-Pipeline/actions/workflows/frontend-cd.yml)|
 
 ## Deliverables
+Backend URL: ac61133cb90af4f8086b183a89029776-2015104078.us-east-1.elb.amazonaws.com/movies
+Frontend URL: a3bca702db3ed4492b15df74b447df71-1891324746.us-east-1.elb.amazonaws.com 
 
 ### Frontend
 
