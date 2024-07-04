@@ -81,10 +81,11 @@ jobs:
         env:
           REPO_NAME: frontend
           IMAGE_TAG: latest
+          REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         run: |
           docker build --build-arg REACT_APP_MOVIE_API_URL=${{ secrets.BACKEND_URL }} --tag=$REPO_NAME:$IMAGE_TAG .
-          docker tag $REPO_NAME:$IMAGE_TAG 487216458884.dkr.ecr.us-east-1.amazonaws.com/$REPO_NAME:$IMAGE_TAG
-          docker push 487216458884.dkr.ecr.us-east-1.amazonaws.com/$REPO_NAME:$IMAGE_TAG
+          docker tag $REPO_NAME:$IMAGE_TAG $REGISTRY/$REPO_NAME:$IMAGE_TAG
+          docker push $REGISTRY/$REPO_NAME:$IMAGE_TAG
         working-directory: ./starter/frontend
 
       - name: Configure kubectl
@@ -94,7 +95,7 @@ jobs:
       - name: Deploy to Kubernetes
         working-directory: ./starter/frontend/k8s
         run: |
-          kustomize edit set image frontend=487216458884.dkr.ecr.us-east-1.amazonaws.com/$REPO_NAME:$IMAGE_TAG
+          kustomize edit set image frontend=$REGISTRY/$REPO_NAME:$IMAGE_TAG
           kustomize build | kubectl apply -f -
 
 
